@@ -16,9 +16,11 @@ void create_if_needed(void) {
     SetConsoleTitleA("Plugin Loader Debug Console");
 
     // All of this is necessary so that way we can properly use the output of the console
+    // NOLINTBEGIN(misc-const-correctness) - clang tidy 21.1.x false positive
     FILE* new_stdin = nullptr;
     FILE* new_stdout = nullptr;
     FILE* new_stderr = nullptr;
+    // NOLINTEND(misc-const-correctness)
     freopen_s(&new_stdin, "CONIN$", "r", stdin);
     freopen_s(&new_stdout, "CONOUT$", "w", stdout);
     freopen_s(&new_stderr, "CONOUT$", "w", stderr);
