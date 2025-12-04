@@ -30,11 +30,11 @@ FARPROC xinput_power_off_controller_ptr = nullptr;
 
 // NOLINTBEGIN(readability-identifier-naming)
 
-#if defined(__MINGW32__)
+#ifdef __MINGW32__
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wcast-function-type"
 #endif
-#if defined(__clang__)
+#ifdef __clang__
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wcast-function-type-mismatch"
 #endif
@@ -97,10 +97,10 @@ DLL_EXPORT DWORD XInputPowerOffController(DWORD dwUserIndex) {
         dwUserIndex);
 }
 
-#if defined(__clang__)
+#ifdef __clang__
 #pragma clang diagnostic pop
 #endif
-#if defined(__MINGW32__)
+#ifdef __MINGW32__
 #pragma GCC diagnostic pop
 #endif
 
