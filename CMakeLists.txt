@@ -1,6 +1,6 @@
 ﻿cmake_minimum_required(VERSION 3.24)
 
-project(pluginloader VERSION 1.0.6)
+project(pluginloader VERSION 1.0.7)
 
 add_library(_pluginloader_base INTERFACE)
 set(CMAKE_EXPORT_COMPILE_COMMANDS True)
@@ -58,6 +58,7 @@ endfunction()
 
 pluginloader_add_impl(no_proxy "src/proxy/none.cpp")
 pluginloader_add_impl(d3d11 "src/proxy/d3d11.cpp")
+pluginloader_add_impl(dinput8 "src/proxy/dinput8.cpp")
 pluginloader_add_impl(dsound "src/proxy/dsound.cpp" "src/proxy/dsound.def")
 pluginloader_add_impl(winmm "src/proxy/winmm.cpp")
 pluginloader_add_impl(xinput1_3 "src/proxy/xinput1_3.cpp" "src/proxy/xinput1_3.def")
@@ -66,6 +67,7 @@ install(
     TARGETS
         pluginloader_no_proxy
         pluginloader_d3d11
+        pluginloader_dinput8
         pluginloader_dsound
         pluginloader_winmm
         pluginloader_xinput1_3
