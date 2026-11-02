@@ -294,12 +294,8 @@ DLL_EXPORT unsigned long WINAPI inet_network(const char* cp) {
 DLL_EXPORT void* WINAPI getnetbyname(const char* name) {
     return reinterpret_cast<decltype(&getnetbyname)>(get_net_by_name_ptr)(name);
 }
-DLL_EXPORT int WINAPI rcmd(char** ahost,
-                           unsigned short inport,
-                           char* locuser,
-                           char* remuser,
-                           char* cmd,
-                           int* fd2p) {
+DLL_EXPORT int WINAPI
+rcmd(char** ahost, unsigned short inport, char* locuser, char* remuser, char* cmd, int* fd2p) {
     return reinterpret_cast<decltype(&rcmd)>(rcmd_ptr)(ahost, inport, locuser, remuser, cmd, fd2p);
 }
 DLL_EXPORT int WINAPI
