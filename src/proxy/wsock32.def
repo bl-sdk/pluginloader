@@ -1,0 +1,77 @@
+LIBRARY wsock32
+EXPORTS
+    accept                      @1
+    bind                        @2
+    closesocket                 @3
+    connect                     @4
+    getpeername                 @5
+    getsockname                 @6
+    getsockopt                  @7
+    htonl                       @8
+    htons                       @9
+    inet_addr                   @10
+    inet_ntoa                   @11
+    ioctlsocket                 @12
+    listen                      @13
+    ntohl                       @14
+    ntohs                       @15
+    recv                        @16
+    recvfrom                    @17
+    select                      @18
+    send                        @19
+    sendto                      @20
+    setsockopt                  @21
+    shutdown                    @22
+    socket                      @23
+    MigrateWinsockConfiguration = mswsock.MigrateWinsockConfiguration @24
+    gethostbyaddr               @51
+    gethostbyname               @52
+    getprotobyname              @53
+    getprotobynumber            @54
+    getservbyname               @55
+    getservbyport               @56
+    gethostname                 @57
+    WSAAsyncSelect              @101
+    WSAAsyncGetHostByAddr       @102
+    WSAAsyncGetHostByName       @103
+    WSAAsyncGetProtoByNumber    @104
+    WSAAsyncGetProtoByName      @105
+    WSAAsyncGetServByPort       @106
+    WSAAsyncGetServByName       @107
+    WSACancelAsyncRequest       @108
+    WSASetBlockingHook          @109
+    WSAUnhookBlockingHook       @110
+    WSAGetLastError             @111
+    WSASetLastError             @112
+    WSACancelBlockingCall       @113
+    WSAIsBlocking               @114
+    WSAStartup                  @115
+    WSACleanup                  @116
+    __WSAFDIsSet                @151
+    WEP                         = ws2_32.WEP @500
+    WSApSetPostRoutine          = ws2_32.WSApSetPostRoutine @1000
+    inet_network                = mswsock.inet_network @1100
+    getnetbyname                = mswsock.getnetbyname @1101
+    rcmd                        = mswsock.rcmd @1102
+    rexec                       = mswsock.rexec @1103
+    rresvport                   = mswsock.rresvport @1104
+    sethostname                 = mswsock.sethostname @1105
+    dn_expand                   = mswsock.dn_expand @1106
+    WSARecvEx                   = mswsock.WSARecvEx @1107
+    s_perror                    = mswsock.s_perror @1108
+    GetAddressByNameA           = mswsock.GetAddressByNameA @1109
+    GetAddressByNameW           = mswsock.GetAddressByNameW @1110
+    EnumProtocolsA              = mswsock.EnumProtocolsA @1111
+    EnumProtocolsW              = mswsock.EnumProtocolsW @1112
+    GetTypeByNameA              = mswsock.GetTypeByNameA @1113
+    GetTypeByNameW              = mswsock.GetTypeByNameW @1114
+    GetNameByTypeA              = mswsock.GetNameByTypeA @1115
+    GetNameByTypeW              = mswsock.GetNameByTypeW @1116
+    SetServiceA                 = mswsock.SetServiceA @1117
+    SetServiceW                 = mswsock.SetServiceW @1118
+    GetServiceA                 = mswsock.GetServiceA @1119
+    GetServiceW                 = mswsock.GetServiceW @1120
+    NPLoadNameSpaces            = mswsock.NPLoadNameSpaces @1130
+    TransmitFile                = mswsock.TransmitFile @1140
+    AcceptEx                    = mswsock.AcceptEx @1141
+    GetAcceptExSockaddrs        = mswsock.GetAcceptExSockaddrs @1142
