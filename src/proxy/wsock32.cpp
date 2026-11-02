@@ -177,6 +177,12 @@ DLL_EXPORT int WINAPI shutdown(SOCKET s, int how) {
 DLL_EXPORT SOCKET WINAPI socket(int af, int type, int protocol) {
     return reinterpret_cast<decltype(&socket)>(socket_ptr)(af, type, protocol);
 }
+DLL_EXPORT unsigned long WINAPI MigrateWinsockConfiguration(unsigned long unknown1,
+                                                            unsigned long unknown2,
+                                                            unsigned long unknown3) {
+    return reinterpret_cast<decltype(&MigrateWinsockConfiguration)>(
+        migrate_winsock_configuration_ptr)(unknown1, unknown2, unknown3);
+}
 DLL_EXPORT void* WINAPI gethostbyaddr(const char* addr, int len, int type) {
     return reinterpret_cast<decltype(&gethostbyaddr)>(get_host_by_addr_ptr)(addr, len, type);
 }
@@ -275,8 +281,156 @@ DLL_EXPORT int WINAPI WSACleanup(void) {
 DLL_EXPORT int WINAPI __WSAFDIsSet(SOCKET fd, void* set) {
     return reinterpret_cast<decltype(&__WSAFDIsSet)>(wsa_fd_is_set_ptr)(fd, set);
 }
+DLL_EXPORT int WINAPI WEP(void) {
+    return reinterpret_cast<decltype(&WEP)>(wep_ptr)();
+}
+DLL_EXPORT int WINAPI WSApSetPostRoutine(void* lpPostRoutine) {
+    return reinterpret_cast<decltype(&WSApSetPostRoutine)>(wsa_p_set_post_routine_ptr)(
+        lpPostRoutine);
+}
+DLL_EXPORT unsigned long WINAPI inet_network(const char* cp) {
+    return reinterpret_cast<decltype(&inet_network)>(inet_network_ptr)(cp);
+}
+DLL_EXPORT void* WINAPI getnetbyname(const char* name) {
+    return reinterpret_cast<decltype(&getnetbyname)>(get_net_by_name_ptr)(name);
+}
+DLL_EXPORT int WINAPI rcmd(char** ahost,
+                           unsigned short inport,
+                           char* locuser,
+                           char* remuser,
+                           char* cmd,
+                           int* fd2p) {
+    return reinterpret_cast<decltype(&rcmd)>(rcmd_ptr)(ahost, inport, locuser, remuser, cmd, fd2p);
+}
+DLL_EXPORT int WINAPI
+rexec(char** ahost, int inport, char* user, char* passwd, char* cmd, int* fd2p) {
+    return reinterpret_cast<decltype(&rexec)>(rexec_ptr)(ahost, inport, user, passwd, cmd, fd2p);
+}
+DLL_EXPORT int WINAPI rresvport(int* port) {
+    return reinterpret_cast<decltype(&rresvport)>(rresvport_ptr)(port);
+}
+DLL_EXPORT int WINAPI sethostname(char* name, int namelen) {
+    return reinterpret_cast<decltype(&sethostname)>(set_host_name_ptr)(name, namelen);
+}
+DLL_EXPORT int WINAPI dn_expand(unsigned char* msg,
+                                unsigned char* eomorig,
+                                unsigned char* comp_dn,
+                                unsigned char* exp_dn,
+                                int length) {
+    return reinterpret_cast<decltype(&dn_expand)>(dn_expand_ptr)(msg, eomorig, comp_dn, exp_dn,
+                                                                 length);
+}
 DLL_EXPORT int WINAPI WSARecvEx(SOCKET s, char* buf, int len, int* flags) {
     return reinterpret_cast<decltype(&WSARecvEx)>(wsa_recv_ex_ptr)(s, buf, len, flags);
+}
+DLL_EXPORT int WINAPI s_perror(char* yourmsg, int lerror) {
+    return reinterpret_cast<decltype(&s_perror)>(s_perror_ptr)(yourmsg, lerror);
+}
+DLL_EXPORT int WINAPI GetAddressByNameA(unsigned long dwNameSpace,
+                                        void* lpServiceType,
+                                        char* lpServiceName,
+                                        int* lpiProtocols,
+                                        unsigned long dwResolution,
+                                        void* lpServiceAsyncInfo,
+                                        void* lpCsaddrBuffer,
+                                        unsigned long* lpdwBufferLength,
+                                        char* lpAliasBuffer,
+                                        unsigned long* lpdwAliasBufferLength) {
+    return reinterpret_cast<decltype(&GetAddressByNameA)>(get_address_by_name_a_ptr)(
+        dwNameSpace, lpServiceType, lpServiceName, lpiProtocols, dwResolution, lpServiceAsyncInfo,
+        lpCsaddrBuffer, lpdwBufferLength, lpAliasBuffer, lpdwAliasBufferLength);
+}
+DLL_EXPORT int WINAPI GetAddressByNameW(unsigned long dwNameSpace,
+                                        void* lpServiceType,
+                                        wchar_t* lpServiceName,
+                                        int* lpiProtocols,
+                                        unsigned long dwResolution,
+                                        void* lpServiceAsyncInfo,
+                                        void* lpCsaddrBuffer,
+                                        unsigned long* lpdwBufferLength,
+                                        wchar_t* lpAliasBuffer,
+                                        unsigned long* lpdwAliasBufferLength) {
+    return reinterpret_cast<decltype(&GetAddressByNameW)>(get_address_by_name_w_ptr)(
+        dwNameSpace, lpServiceType, lpServiceName, lpiProtocols, dwResolution, lpServiceAsyncInfo,
+        lpCsaddrBuffer, lpdwBufferLength, lpAliasBuffer, lpdwAliasBufferLength);
+}
+DLL_EXPORT int WINAPI EnumProtocolsA(int* lpiProtocols,
+                                     void* lpProtocolBuffer,
+                                     unsigned long* lpdwBufferLength) {
+    return reinterpret_cast<decltype(&EnumProtocolsA)>(enum_protocols_a_ptr)(
+        lpiProtocols, lpProtocolBuffer, lpdwBufferLength);
+}
+DLL_EXPORT int WINAPI EnumProtocolsW(int* lpiProtocols,
+                                     void* lpProtocolBuffer,
+                                     unsigned long* lpdwBufferLength) {
+    return reinterpret_cast<decltype(&EnumProtocolsW)>(enum_protocols_w_ptr)(
+        lpiProtocols, lpProtocolBuffer, lpdwBufferLength);
+}
+DLL_EXPORT int WINAPI GetTypeByNameA(char* lpServiceName, void* lpServiceType) {
+    return reinterpret_cast<decltype(&GetTypeByNameA)>(get_type_by_name_a_ptr)(lpServiceName,
+                                                                               lpServiceType);
+}
+DLL_EXPORT int WINAPI GetTypeByNameW(wchar_t* lpServiceName, void* lpServiceType) {
+    return reinterpret_cast<decltype(&GetTypeByNameW)>(get_type_by_name_w_ptr)(lpServiceName,
+                                                                               lpServiceType);
+}
+DLL_EXPORT int WINAPI GetNameByTypeA(void* lpServiceType,
+                                     char* lpServiceName,
+                                     unsigned long dwNameLength) {
+    return reinterpret_cast<decltype(&GetNameByTypeA)>(get_name_by_type_a_ptr)(
+        lpServiceType, lpServiceName, dwNameLength);
+}
+DLL_EXPORT int WINAPI GetNameByTypeW(void* lpServiceType,
+                                     wchar_t* lpServiceName,
+                                     unsigned long dwNameLength) {
+    return reinterpret_cast<decltype(&GetNameByTypeW)>(get_name_by_type_w_ptr)(
+        lpServiceType, lpServiceName, dwNameLength);
+}
+DLL_EXPORT int WINAPI SetServiceA(unsigned long dwNameSpace,
+                                  unsigned long dwOperation,
+                                  unsigned long dwFlags,
+                                  void* lpServiceInfo,
+                                  void* lpServiceAsyncInfo,
+                                  unsigned long* lpdwStatusFlags) {
+    return reinterpret_cast<decltype(&SetServiceA)>(set_service_a_ptr)(
+        dwNameSpace, dwOperation, dwFlags, lpServiceInfo, lpServiceAsyncInfo, lpdwStatusFlags);
+}
+DLL_EXPORT int WINAPI SetServiceW(unsigned long dwNameSpace,
+                                  unsigned long dwOperation,
+                                  unsigned long dwFlags,
+                                  void* lpServiceInfo,
+                                  void* lpServiceAsyncInfo,
+                                  unsigned long* lpdwStatusFlags) {
+    return reinterpret_cast<decltype(&SetServiceW)>(set_service_w_ptr)(
+        dwNameSpace, dwOperation, dwFlags, lpServiceInfo, lpServiceAsyncInfo, lpdwStatusFlags);
+}
+DLL_EXPORT int WINAPI GetServiceA(unsigned long dwNameSpace,
+                                  void* lpGuid,
+                                  char* lpServiceName,
+                                  unsigned long dwProperties,
+                                  void* lpBuffer,
+                                  unsigned long* lpdwBufferSize,
+                                  void* lpServiceAsyncInfo) {
+    return reinterpret_cast<decltype(&GetServiceA)>(get_service_a_ptr)(
+        dwNameSpace, lpGuid, lpServiceName, dwProperties, lpBuffer, lpdwBufferSize,
+        lpServiceAsyncInfo);
+}
+DLL_EXPORT int WINAPI GetServiceW(unsigned long dwNameSpace,
+                                  void* lpGuid,
+                                  wchar_t* lpServiceName,
+                                  unsigned long dwProperties,
+                                  void* lpBuffer,
+                                  unsigned long* lpdwBufferSize,
+                                  void* lpServiceAsyncInfo) {
+    return reinterpret_cast<decltype(&GetServiceW)>(get_service_w_ptr)(
+        dwNameSpace, lpGuid, lpServiceName, dwProperties, lpBuffer, lpdwBufferSize,
+        lpServiceAsyncInfo);
+}
+DLL_EXPORT int WINAPI NPLoadNameSpaces(unsigned long dwVersion,
+                                       void* lpdwNumberOfNameSpaces,
+                                       void* lpNameSpaceBuffer) {
+    return reinterpret_cast<decltype(&NPLoadNameSpaces)>(np_load_name_spaces_ptr)(
+        dwVersion, lpdwNumberOfNameSpaces, lpNameSpaceBuffer);
 }
 DLL_EXPORT int WINAPI TransmitFile(SOCKET hSocket,
                                    void* hFile,

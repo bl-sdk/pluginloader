@@ -23,7 +23,7 @@ EXPORTS
     setsockopt                  @21
     shutdown                    @22
     socket                      @23
-    MigrateWinsockConfiguration = mswsock.MigrateWinsockConfiguration @24
+    MigrateWinsockConfiguration @24
     gethostbyaddr               @51
     gethostbyname               @52
     getprotobyname              @53
@@ -48,30 +48,30 @@ EXPORTS
     WSAStartup                  @115
     WSACleanup                  @116
     __WSAFDIsSet                @151
-    WEP                         = ws2_32.WEP @500
-    WSApSetPostRoutine          = ws2_32.WSApSetPostRoutine @1000
-    inet_network                = mswsock.inet_network @1100
-    getnetbyname                = mswsock.getnetbyname @1101
-    rcmd                        = mswsock.rcmd @1102
-    rexec                       = mswsock.rexec @1103
-    rresvport                   = mswsock.rresvport @1104
-    sethostname                 = mswsock.sethostname @1105
-    dn_expand                   = mswsock.dn_expand @1106
-    WSARecvEx                   = mswsock.WSARecvEx @1107
-    s_perror                    = mswsock.s_perror @1108
-    GetAddressByNameA           = mswsock.GetAddressByNameA @1109
-    GetAddressByNameW           = mswsock.GetAddressByNameW @1110
-    EnumProtocolsA              = mswsock.EnumProtocolsA @1111
-    EnumProtocolsW              = mswsock.EnumProtocolsW @1112
-    GetTypeByNameA              = mswsock.GetTypeByNameA @1113
-    GetTypeByNameW              = mswsock.GetTypeByNameW @1114
-    GetNameByTypeA              = mswsock.GetNameByTypeA @1115
-    GetNameByTypeW              = mswsock.GetNameByTypeW @1116
-    SetServiceA                 = mswsock.SetServiceA @1117
-    SetServiceW                 = mswsock.SetServiceW @1118
-    GetServiceA                 = mswsock.GetServiceA @1119
-    GetServiceW                 = mswsock.GetServiceW @1120
-    NPLoadNameSpaces            = mswsock.NPLoadNameSpaces @1130
-    TransmitFile                = mswsock.TransmitFile @1140
-    AcceptEx                    = mswsock.AcceptEx @1141
-    GetAcceptExSockaddrs        = mswsock.GetAcceptExSockaddrs @1142
+    WEP                         @500
+    WSApSetPostRoutine          @1000
+    inet_network                @1100
+    getnetbyname                @1101
+    rcmd                        @1102
+    rexec                       @1103
+    rresvport                   @1104
+    sethostname                 @1105
+    dn_expand                   @1106
+    WSARecvEx                   @1107
+    s_perror                    @1108
+    GetAddressByNameA           @1109
+    GetAddressByNameW           @1110
+    EnumProtocolsA              @1111
+    EnumProtocolsW              @1112
+    GetTypeByNameA              @1113
+    GetTypeByNameW              @1114
+    GetNameByTypeA              @1115
+    GetNameByTypeW              @1116
+    SetServiceA                 @1117
+    SetServiceW                 @1118
+    GetServiceA                 @1119
+    GetServiceW                 @1120
+    NPLoadNameSpaces            @1130
+    TransmitFile                @1140
+    AcceptEx                    @1141
+    GetAcceptExSockaddrs        @1142
